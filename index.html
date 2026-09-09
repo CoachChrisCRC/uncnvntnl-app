@@ -1,0 +1,126 @@
+```html
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TRAIN UNCNVNTNL | App In Development</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts for rugged heavy feel -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Tally Widget Script -->
+    <script async src="https://tally.so/widgets/embed.js"></script>
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0b0b0c;
+            color: #f3f4f6;
+            margin: 0;
+            padding: 0;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .grunge-title {
+            font-family: 'Special Elite', cursive, monospace;
+            letter-spacing: 0.05em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+        }
+        .bg-overlay {
+            background: linear-gradient(rgba(11, 11, 12, 0.90), rgba(11, 11, 12, 0.94)), 
+                        url('https://placehold.co/1200x800/1a1a1a/333333?text=Unconventional+Training') center/cover no-repeat;
+        }
+        .btn-metal {
+            background: #18181b;
+            border: 2px solid #3f3f46;
+            transition: all 0.2s ease;
+        }
+        .btn-metal:hover {
+            border-color: #dc2626;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(220, 38, 38, 0.25);
+        }
+    </style>
+</head>
+<body class="bg-overlay flex items-center justify-center w-screen h-screen m-0 p-0 overflow-hidden">
+
+    <main class="w-full h-full flex flex-col items-center justify-center p-3 sm:p-6 md:p-8">
+        
+        <div class="w-full h-full max-w-5xl max-h-none sm:max-h-[92vh] md:max-h-[88vh] p-6 sm:p-10 md:p-14 rounded-none sm:rounded-2xl bg-zinc-900/98 border-0 sm:border border-zinc-800 shadow-2xl backdrop-blur-md relative overflow-y-auto flex flex-col justify-center text-center">
+            
+            <!-- Top Red Gradient Accent Line -->
+            <div class="absolute top-0 left-0 h-2 w-full bg-gradient-to-r from-red-600 via-zinc-500 to-red-600"></div>
+            
+            <!-- In Development Badge -->
+            <div class="flex justify-center mb-6 sm:mb-8">
+                <div class="inline-flex items-center px-4 py-2 text-xs sm:text-sm font-bold uppercase tracking-widest bg-red-950/80 text-red-400 rounded-full border border-red-900/50 shadow-md">
+                    <i class="fa-solid fa-code-merge mr-2"></i> In Development
+                </div>
+            </div>
+
+            <!-- Main Heading -->
+            <h2 class="grunge-title text-3xl sm:text-4xl md:text-6xl font-bold text-white tracking-wider mb-5 sm:mb-6">
+                | APP COMING SOON |
+            </h2>
+
+            <!-- Description -->
+            <p class="text-base sm:text-lg md:text-xl text-zinc-300 mb-8 sm:mb-10 max-w-2xl mx-auto leading-relaxed">
+                Our custom mobile application for kettlebells, steelmaces, and Indian clubs is currently being forged. Get early access updates below.
+            </p>
+
+            <!-- Input & Tally Button Integration -->
+            <div class="max-w-md w-full mx-auto space-y-4">
+                <div>
+                    <input type="email" id="userEmail" placeholder="Enter your email for early access..." required class="w-full bg-zinc-950 border border-zinc-700 rounded-xl px-4 py-4 text-sm sm:text-base text-white focus:outline-none focus:border-red-600 shadow-inner">
+                </div>
+                
+                <!-- Tally Modal Button with dynamic email passing -->
+                <button type="button" 
+                        id="tallyTriggerBtn"
+                        data-tally-open="jaR2KE" 
+                        data-tally-layout="modal" 
+                        data-tally-emoji-text="➖️➖️🤘➖️➖️⚫️" 
+                        data-tally-emoji-animation="heart-beat"
+                        class="btn-metal w-full py-4 px-6 rounded-xl text-sm sm:text-base font-bold tracking-wider text-white uppercase flex items-center justify-center gap-3 shadow-lg cursor-pointer">
+                    <i class="fa-solid fa-bell text-red-500 text-base sm:text-lg"></i> Register Interest / Notify Me
+                </button>
+            </div>
+            
+        </div>
+
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const emailInput = document.getElementById('userEmail');
+            const tallyBtn = document.getElementById('tallyTriggerBtn');
+
+            // Listen for clicks on the trigger button to update data-tally-params with the email
+            tallyBtn.addEventListener('click', (e) => {
+                const emailVal = emailInput.value.trim();
+                if (emailVal && emailVal.includes('@')) {
+                    // Pass email to Tally via data-tally-params attribute dynamically
+                    tallyBtn.setAttribute('data-tally-params', JSON.stringify({ email: emailVal }));
+                } else {
+                    tallyBtn.removeAttribute('data-tally-params');
+                }
+            });
+
+            // Also support pressing Enter inside the email input to trigger the Tally modal
+            emailInput.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    tallyBtn.click();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+```
